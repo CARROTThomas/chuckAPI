@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+    {% block stylesheets %}
+
+        {{ parent() }}
+        {{ encore_entry_link_tags('home') }}
+    {% endblock %}
+
+
+    <div>
+        {% for joke in jokes %}
+            <div class="p-3 border m-1 d-flex justify-content-between">
+                <p>{{ joke.content }}</p>
+                <a class="btn btn-danger" href="{{ path('app_home_delete', {id:joke.id}) }}">delete</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -14,6 +14,45 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-lg d-flex align-items-center justify-content-between">
+                <a class="btn text-light" id="logoNavBarre" href="{{ path('app_home') }}">LOGO</a>
+                <!--<a id="logoNavBarre" class="navbar-brand text-light imgBase" href="#">LOGO</a>-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end text-light" id="navbarNav">
+                    <ul class="navbar-nav">
+                        {% if app.user %}
+                            <li>
+                                <a class="nav-link text-light" href="{{ path('app_home_show') }}">Voir mes blagues</a>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a class="nav-link text-light" href="{{ path('app_login') }}">login</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-light" href="{{ path('app_register') }}">register</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-light" href="{{ path('app_logout') }}">logout</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-light" href="#">lien</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header> <!-- BAR DE NAVIGATION -->
+
+    <div class="pt-5 pb-5">
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+
     </body>
 </html>
